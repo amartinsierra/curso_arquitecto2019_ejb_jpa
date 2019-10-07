@@ -10,7 +10,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="pedidos")
-@NamedQuery(name="Pedido.findAll", query="SELECT p FROM Pedido p")
+@NamedQueries({
+	@NamedQuery(name="Pedido.findAll", query="SELECT p FROM Pedido p"),
+	@NamedQuery(name="Pedido.deleteByCategoria", query="Delete From Pedido p Where p.categoria=?1")
+})
 public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 

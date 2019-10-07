@@ -21,9 +21,10 @@ public class Controller extends HttpServlet {
 				break;
 			case "doEliminar":
 				request.getRequestDispatcher("EliminarAction").include(request, response);
-			case "doPedidos":
-				
-				request.getRequestDispatcher("PedidosAction").forward(request, response);
+				url="pedidos.jsp";
+				break;
+			case "doPedidos":				
+				request.getRequestDispatcher("PedidosAction").include(request, response);
 				url="pedidos.jsp";
 				break;
 			case "doRecuperar":
@@ -32,7 +33,7 @@ public class Controller extends HttpServlet {
 				break;
 			case "doModificar":
 				request.getRequestDispatcher("ModificarAction").include(request, response);
-				url="opciones.html";
+				url="pedidos.jsp";
 				break;
 			case "toFormulario":
 				url="formulario.html";

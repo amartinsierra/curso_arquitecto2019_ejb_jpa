@@ -1,4 +1,4 @@
-package controlador;
+package servlets;
 
 import java.io.IOException;
 
@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daos.DaoPedidos;
+import daos.DaoTemas;
+
 
 /**
- * Servlet implementation class EliminarPedido
+ * Servlet implementation class TemasAction
  */
-@WebServlet("/EliminarAction")
-public class EliminarAction extends HttpServlet {
+@WebServlet("/TemasAction")
+public class TemasAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@EJB
-	DaoPedidos dao;
-	
+	DaoTemas gtemas;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("temas", gtemas.obtenerTemas());
 		
-		dao.eliminarPedido(Integer.parseInt(request.getParameter("idPedido")));
-		request.getRequestDispatcher("PedidosAction").include(request, response);
 	}
 
 }
